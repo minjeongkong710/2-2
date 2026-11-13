@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고3 영어 전용 학습 라운지</title>
+    <style>
+        :root { --primary: #3b82f6; --bg: #f8fafc; --text: #1e293b; --border: #e2e8f0; }
+        body { font-family: 'Pretendard', system-ui, sans-serif; margin: 0; background: var(--bg); color: var(--text); }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { color: var(--primary); margin-bottom: 5px; }
+        .tabs { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
+        .tab-btn { background: none; border: none; font-size: 16px; font-weight: 600; color: #64748b; padding: 10px 15px; cursor: pointer; border-radius: 8px; transition: all 0.2s; }
+        .tab-btn:hover { background: #e0f2fe; color: var(--primary); }
+        .tab-btn.active { background: var(--primary); color: white; }
+        .content-section { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); display: none; }
+        .content-section.active { display: block; }
+        
+        /* 세부 요소 스타일 */
+        ul.homework-list { line-height: 1.8; font-size: 17px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid var(--border); padding: 12px; text-align: left; }
+        th { background: #f1f5f9; font-weight: bold; }
+        
+        /* 퀴즈 & QnA 영역 */
+        .quiz-card { border: 1px solid var(--border); padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .quiz-card p { font-weight: bold; margin-top: 0; }
+        .quiz-card label { display: block; margin-bottom: 8px; cursor: pointer; }
+        .btn-submit { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        #quiz-result { margin-top: 15px; font-weight: bold; color: #16a34a; }
+        
+        .qna-form { display: flex; gap: 10px; margin-bottom: 20px; }
+        .qna-form input { flex: 1; padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 15px; }
+        .qna-list { list-style: none; padding: 0; }
+        .qna-list li { background: #f1f5f9; padding: 15px; border-radius: 8px; margin-bottom: 10px; font-size: 15px; display: flex; gap: 10px; flex-direction: column;}
+        .qna-badge { font-size: 12px; background: #e2e8f0; color: #475569; padding: 3px 8px; border-radius: 12px; align-self: flex-start; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>고3 수능영어 만점 라운지</h1>
+            <p>오늘의 숙제, 인강, 퀴즈를 한 곳에서 마스터하세요.</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('tab-homework')">📋 숙제/공지</button>
+            <button class="tab-btn" onclick="showTab('tab-video')">📺 짧은 특강</button>
+            <button class="tab-btn" onclick="showTab('tab-vocab')">📖 필수 단어</button>
+            <button class="tab-btn" onclick="showTab('tab-material')">💾 자료실</button>
+            <button class="tab-btn" onclick="showTab('tab-quiz')">✅ 퀴즈 테스트</button>
+            <button class="tab-btn" onclick="showTab('tab-qna')">🙋‍♂️ Q&A</button>
+        </div>
+
+        <!-- 1. 숙제 -->
+        <div id="tab-homework" class="content-section active">
+            <h2>이번 주 필수 과제 (D-day 140)</h2>
+            <ul class="homework-list">
+                <li>수능특강 영어 5강 1~4번 문제 풀고 채점하기</li>
+                <li>오답 노트 작성 (왜 틀렸는지 구문 분석 필수)</li>
+                <li>단어장 Day 12~15 암기 및 테스트 준비</li>
+                <li>Q&A 게시판에 모르는 문장 1개 이상 질문 남기기</li>
+            </ul>
+        </div>
+
+        <!-- 2. 영상 -->
+        <div id="tab-video" class="content-section">
+            <h2>빈칸 추론 핵심 꿀팁 강의</h2>
+            <div class="video-wrapper">
+                <!-- 샘플 유튜브 영상 -->
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p style="margin-top: 15px; color: #64748b;">* 영상 시청 후 반드시 퀴즈 탭에서 이해도를 점검하세요.</p>
+        </div>
+
+        <!-- 3. 단어 -->
+        <div id="tab-vocab" class="content-section">
+            <h2>Day 12 핵심 영단어</h2>
+            <table>
+                <thead><tr><th>단어</th><th>의미</th><th>예문 확인</th></tr></thead>
+                <tbody>
+                    <tr><td>unprecedented</td><td>전례 없는</td><td>an unprecedented crisis</td></tr>
+                    <tr><td>vulnerable</td><td>취약한, 상처 입기 쉬운</td><td>vulnerable to disease</td></tr>
+                    <tr><td>lucrative</td><td>수익성이 좋은</td><td>a lucrative business</td></tr>
+                    <tr><td>ambiguous</td><td>애매한, 모호한</td><td>an ambiguous answer</td></tr>
+                    <tr><td>meticulous</td><td>꼼꼼한, 세심한</td><td>meticulous planning</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 4. 자료실 -->
+        <div id="tab-material" class="content-section">
+            <h2>핵심 학습 자료 다운로드</h2>
+            <ul class="homework-list">
+                <li>📄 <a href="#" style="color: var(--primary);">2024학년도 9월 모의평가 해설지 및 분석본.pdf</a></li>
+                <li>📄 <a href="#" style="color: var(--primary);">수능특강 영단어 총정리(1강~15강).pdf</a></li>
+                <li>📄 <a href="#" style="color: var(--primary);">구문 분석 기출 100선.hwp</a></li>
+            </ul>
+        </div>
+
+        <!-- 5. 퀴즈 -->
+        <div id="tab-quiz" class="content-section">
+            <h2>미니 퀴즈 테스트</h2>
+            <form id="quiz-form" onsubmit="submitQuiz(event)">
+                <div class="quiz-card">
+                    <p>Q1. 다음 중 'unprecedented'의 알맞은 뜻은?</p>
+                    <label><input type="radio" name="q1" value="wrong1"> 예측 가능한</label>
+                    <label><input type="radio" name="q1" value="correct"> 전례 없는</label>
+                    <label><input type="radio" name="q1" value="wrong2"> 필연적인</label>
+                </div>
+                <div class="quiz-card">
+                    <p>Q2. 문맥상 빈칸에 들어갈 가장 알맞은 말은? "His business was highly ______, making him a millionaire in a year."</p>
+                    <label><input type="radio" name="q2" value="wrong1"> ambiguous</label>
+                    <label><input type="radio" name="q2" value="wrong2"> vulnerable</label>
+                    <label><input type="radio" name="q2" value="correct"> lucrative</label>
+                </div>
+                <button type="submit" class="btn-submit">채점하기</button>
+                <div id="quiz-result"></div>
+            </form>
+        </div>
+
+        <!-- 6. QnA -->
+        <div id="tab-qna" class="content-section">
+            <h2>질문 게시판 (Q&A)</h2>
+            <p style="color: #64748b; font-size: 14px; margin-bottom:15px;">이해가 안 가는 구문이나 문제를 편하게 질문하세요. 선생님이 직접 답변해 드립니다.</p>
+            <form class="qna-form" onsubmit="submitQna(event)">
+                <input type="text" id="qna-input" placeholder="여기에 질문을 입력하세요..." required>
+                <button type="submit" class="btn-submit">질문 등록</button>
+            </form>
+            <ul class="qna-list" id="qna-list">
+                <li>
+                    <span class="qna-badge">선생님 답변 완료</span>
+                    <strong>수특 5강 3번 문장에서 that이 관계대명사인지 접속사인지 헷갈립니다.</strong>
+                    <span style="color:#64748b; font-size:14px;">↪ 선생님: 뒤에 완벽한 문장이 왔으니 명사절 접속사 that으로 쓰인 것입니다! 수업 시간에 한 번 더 다뤄줄게요.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 탭 전환 기능
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // 퀴즈 채점 기능
+        function submitQuiz(e) {
+            e.preventDefault();
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            
+            if (!q1 || !q2) {
+                alert('모든 문제를 풀어주세요!');
+                return;
+            }
+
+            let score = 0;
+            if (q1.value === 'correct') score += 50;
+            if (q2.value === 'correct') score += 50;
+
+            document.getElementById('quiz-result').innerText = `채점 결과: 100점 만점에 ${score}점 입니다!`;
+        }
+
+        // QnA 등록 기능
+        function submitQna(e) {
+            e.preventDefault();
+            const input = document.getElementById('qna-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const list = document.getElementById('qna-list');
+            const li = document.createElement('li');
+            li.innerHTML = `<span class="qna-badge" style="background:#fef08a; color:#854d0e;">답변 대기중</span><strong>${text}</strong>`;
+            
+            list.insertBefore(li, list.firstChild);
+            input.value = '';
+            alert('질문이 성공적으로 등록되었습니다.');
+        }
+    </script>
+</body>
+</html>
